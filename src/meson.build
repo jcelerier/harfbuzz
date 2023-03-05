@@ -620,6 +620,9 @@ if conf.get('HAVE_CAIRO', 0) == 1
     'hb-cairo.h',
   ]
 
+  gir_sources += hb_cairo_sources
+  gir_headers += hb_cairo_headers
+
   cairo_dep = dependency('cairo')
 
   libharfbuzz_cairo = library('harfbuzz-cairo', hb_cairo_sources,
@@ -846,12 +849,12 @@ if have_gobject
     conf.set('HAVE_INTROSPECTION', 1)
     hb_gen_files_gir = gnome.generate_gir(libharfbuzz_gobject,
       sources: [gir_headers, gir_sources, gobject_enums_h],
-      dependencies: libharfbuzz_dep,
+      dependencies: [libharfbuzz_dep, libharfbuzz_cairo_dep],
       namespace: 'HarfBuzz',
       nsversion: '0.0',
       identifier_prefix: 'hb_',
       symbol_prefix: ['hb', 'hb_gobject'],
-      includes: ['GObject-2.0', 'freetype2-2.0'],
+      includes: ['GObject-2.0', 'freetype2-2.0', 'cairo-1.0'],
       export_packages: ['harfbuzz-gobject'],
       header: 'hb-gobject.h',
       install: true,

@@ -627,7 +627,7 @@ if (HB_HAVE_INTROSPECTION)
       --symbol-prefix=hb
       --symbol-prefix=hb_gobject
       --identifier-prefix=hb_
-      --include GObject-2.0
+      --include GObject-2.0 freetype2-2.0 cairo-1.0
       --pkg-export=harfbuzz-gobject
       --c-include=hb-gobject.h
       --cflags-begin
