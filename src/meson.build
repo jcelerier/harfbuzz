@@ -847,7 +847,7 @@ if have_gobject
 
   if build_gir
     conf.set('HAVE_INTROSPECTION', 1)
-    hb_gen_files_gir = gnome.generate_gir(libharfbuzz_gobject,
+    hb_gen_files_gir = gnome.generate_gir([libharfbuzz_gobject, libharfbuzz_cairo],
       sources: [gir_headers, gir_sources, gobject_enums_h],
       dependencies: [libharfbuzz_dep, libharfbuzz_cairo_dep],
       namespace: 'HarfBuzz',
