@@ -12,7 +12,7 @@ list(GET _harfbuzz_version_info 2
   _harfbuzz_age)
 unset(_harfbuzz_version_info)
 
-if ("@default_library@" MATCHES "static")
+if (1)
   set(_harfbuzz_lib_prefix "lib")
   set(_harfbuzz_lib_suffix ".a")
 else ()
