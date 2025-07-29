@@ -28,10 +28,8 @@
 #include "hb.hh"
 #include "hb-blob.hh"
 
-#ifdef HAVE_SYS_MMAN_H
-#ifdef HAVE_UNISTD_H
+#if !defined(_WIN32)
 #include <unistd.h>
-#endif /* HAVE_UNISTD_H */
 #include <sys/mman.h>
 #endif /* HAVE_SYS_MMAN_H */
 
